@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<parent>
+		<artifactId>spring-webservices-samples
+		</artifactId>
+		<groupId>com.marvelution.samples</groupId>
+		<version>1.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.marvelution.samples</groupId>
+	<artifactId>annotated-action-endpoint
+	</artifactId>
+	<packaging>war</packaging>
+	<version>1.0</version>
+	<name>Marvelution :: Samples :: Spring WebServices ::
+		Annotated Action Endpoint</name>
+	<url>http://code.google.com/p/spring-webservices-samples/
+	</url>
+</project>
