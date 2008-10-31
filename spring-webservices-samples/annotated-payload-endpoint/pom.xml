@@ -11,6 +11,7 @@
 	<artifactId>annotated-payload-endpoint
 	</artifactId>
 	<version>1.0</version>
+	<packaging>war</packaging>
 	<name>Marvelution :: Samples :: Spring WebServices :: Annotated Payload Endpoint</name>
 	<url>http://code.google.com/p/spring-webservices-samples/
 	</url>
