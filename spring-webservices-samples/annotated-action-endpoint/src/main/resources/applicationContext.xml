@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="helloWorldImpl"
+		class="com.marvelution.samples.spring_ws.annotated_action_endpoint.HelloWorldImpl" />
+
+	<bean id="objectFactory"
+		class="com.marvelution.samples.schemas.helloworldserviceschema.ObjectFactory" />
+
+	<bean id="helloWorldEndpoint"
+		class="com.marvelution.samples.spring_ws.annotated_action_endpoint.endpoints.HelloWorldEndpoint">
+		<constructor-arg ref="helloWorldImpl" />
+		<constructor-arg ref="objectFactory" />
+	</bean>
+
+	<bean
+		class="org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping" />
+
+	<bean
+		class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
+		<constructor-arg ref="marshaller" />
+	</bean>
+
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath"
+			value="com.marvelution.samples.schemas.helloworldserviceschema" />
+	</bean>
+
+</beans>

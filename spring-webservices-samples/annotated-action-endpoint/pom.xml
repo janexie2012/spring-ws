@@ -35,4 +35,23 @@
 		<name>Marvelution</name>
 		<url>http://www.marvelution.com/</url>
 	</organization>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaDirectory>${basedir}/src/main/webapp/WEB-INF/</schemaDirectory>
+					<schemaFiles>wsdl/xsd/HelloWorldServiceSchema.xsd</schemaFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
