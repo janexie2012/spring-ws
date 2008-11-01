@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 		<artifactId>spring-webservices-samples
 		</artifactId>
@@ -22,8 +22,7 @@
 			<email>mark@marvelution.com</email>
 			<url>http://www.marvelution.com</url>
 			<organization>Marvelution</organization>
-			<organizationUrl>http://www.marvelution.com/
-			</organizationUrl>
+			<organizationUrl>http://www.marvelution.com/</organizationUrl>
 			<timezone>+1</timezone>
 		</developer>
 	</developers>
@@ -45,4 +44,23 @@
 		<name>Marvelution</name>
 		<url>http://www.marvelution.com/</url>
 	</organization>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaDirectory>${basedir}/src/main/webapp/WEB-INF/</schemaDirectory>
+					<schemaFiles>wsdl/xsd/CalculatorServiceSchema.xsd</schemaFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="calculatorImpl"
+		class="com.marvelution.samples.spring_ws.annotated_payload_endpoint.CalculatorImpl" />
+
+	<bean id="objectFactory"
+		class="com.marvelution.samples.schemas.calculatorserviceschema.ObjectFactory" />
+
+	<bean id="calculatorEndpoint"
+		class="com.marvelution.samples.spring_ws.annotated_payload_endpoint.endpoints.CalculatorEndpoint">
+		<constructor-arg ref="calculatorImpl" />
+		<constructor-arg ref="objectFactory" />
+	</bean>
+
+	<bean
+		class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping" />
+
+	<bean
+		class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
+		<constructor-arg ref="marshaller" />
+	</bean>
+
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath" value="com.marvelution.samples.schemas.calculatorserviceschema" />
+	</bean>
+
+</beans>

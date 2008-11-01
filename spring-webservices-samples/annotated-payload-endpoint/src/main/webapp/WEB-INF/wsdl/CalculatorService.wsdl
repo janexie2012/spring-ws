@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.marvelution.com/samples/definitions/CalculatorService/"
+	xmlns:schema="http://www.marvelution.com/samples/schemas/CalculatorServiceSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="CalculatorService"
+	targetNamespace="http://www.marvelution.com/samples/definitions/CalculatorService/">
+
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://www.marvelution.com/samples/definitions/CalculatorService/Imports">
+			<xsd:import
+				namespace="http://www.marvelution.com/samples/schemas/CalculatorServiceSchema"
+				schemaLocation="xsd/CalculatorServiceSchema.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="AddRequest">
+		<wsdl:part element="schema:Add" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:message name="SubtractRequest">
+		<wsdl:part element="schema:Subtract" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:message name="DivideRequest">
+		<wsdl:part element="schema:Divide" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:message name="MultiplyRequest">
+		<wsdl:part element="schema:Multiply" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:message name="CalculateResponse">
+		<wsdl:part element="schema:CalculateResponse" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:portType name="CalculatorServicePort">
+		<wsdl:operation name="Add">
+			<wsdl:input message="tns:AddRequest" />
+			<wsdl:output message="tns:CalculateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="Subtract">
+			<wsdl:input message="tns:SubtractRequest" />
+			<wsdl:output message="tns:CalculateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="Divide">
+			<wsdl:input message="tns:DivideRequest" />
+			<wsdl:output message="tns:CalculateResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="Multiply">
+			<wsdl:input message="tns:MultiplyRequest" />
+			<wsdl:output message="tns:CalculateResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="CalculatorServiceBinding" type="tns:CalculatorServicePort">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Add">
+			<soap:operation
+				soapAction="http://www.marvelution.com/samples/definitions/CalculatorService/Add" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Subtract">
+			<soap:operation
+				soapAction="http://www.marvelution.com/samples/definitions/CalculatorService/Subtract" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Divide">
+			<soap:operation
+				soapAction="http://www.marvelution.com/samples/definitions/CalculatorService/Divide" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Multiply">
+			<soap:operation
+				soapAction="http://www.marvelution.com/samples/definitions/CalculatorService/Multiply" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CalculatorService">
+		<wsdl:port binding="tns:CalculatorServiceBinding" name="CalculatorService">
+			<soap:address location="/calculatorService" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

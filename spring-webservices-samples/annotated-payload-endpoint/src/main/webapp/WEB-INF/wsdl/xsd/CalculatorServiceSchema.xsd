@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.marvelution.com/samples/schemas/CalculatorServiceSchema"
+	xmlns="http://www.marvelution.com/samples/schemas/CalculatorServiceSchema"
+	elementFormDefault="qualified">
+
+	<xsd:element name="Add">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="number" type="xsd:double" minOccurs="2"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Subtract">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="number" type="xsd:double" minOccurs="2"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="Divide">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="number" type="xsd:double" minOccurs="2"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Multiply">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="number" type="xsd:double" minOccurs="2"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CalculateResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="result" type="xsd:double" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
