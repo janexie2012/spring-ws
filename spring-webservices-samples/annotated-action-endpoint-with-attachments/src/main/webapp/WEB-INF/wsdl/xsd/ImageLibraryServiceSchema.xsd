@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.marvelution.com/samples/schemas/ImageLibraryServiceSchema"
+	xmlns="http://www.marvelution.com/samples/schemas/ImageLibraryServiceSchema"
+	xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" elementFormDefault="qualified">
+
+	<xsd:import namespace="http://ws-i.org/profiles/basic/1.1/xsd"
+		schemaLocation="http://ws-i.org/profiles/basic/1.1/swaref.xsd" />
+
+	<xsd:element name="AddImage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ImageFileName" type="xsd:string" />
+				<xsd:element name="Image" type="wsi:swaRef" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AddImageResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Result" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

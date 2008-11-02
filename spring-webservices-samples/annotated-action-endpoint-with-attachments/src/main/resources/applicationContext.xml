@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="imageLibraryImpl"
+		class="com.marvelution.samples.spring.ws.annotated.action.endpoint.with.attachments.ImageLibraryImpl" />
+
+	<bean id="objectFactory"
+		class="com.marvelution.samples.schemas.imagelibraryserviceschema.ObjectFactory" />
+
+	<bean id="imageLibraryEndpoint"
+		class="com.marvelution.samples.spring.ws.annotated.action.endpoint.with.attachments.endpoints.ImageLibraryEndpoint">
+		<constructor-arg ref="imageLibraryImpl" />
+		<constructor-arg ref="objectFactory" />
+	</bean>
+
+	<bean
+		class="org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping">
+		<property name="preInterceptors">
+			<list>
+				<ref bean="loggingInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
+		<constructor-arg ref="marshaller" />
+	</bean>
+
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath"
+			value="com.marvelution.samples.schemas.imagelibraryserviceschema" />
+		<property name="mtomEnabled" value="true" />
+	</bean>
+
+	<bean id="loggingInterceptor"
+		class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor" />
+
+
+</beans>

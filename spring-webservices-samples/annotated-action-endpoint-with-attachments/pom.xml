@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>spring-webservices-samples</artifactId>
+		<groupId>com.marvelution.samples</groupId>
+		<version>1.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.marvelution.samples</groupId>
+	<artifactId>annotated-action-endpoint-with-attachments</artifactId>
+	<packaging>war</packaging>
+	<version>1.0</version>
+	<name>Marvelution :: Samples :: Spring WebServices :: Annotated Action Endpoint With Attachments</name>
+	<url>http://code.google.com/p/spring-webservices-samples/</url>
+	<developers>
+		<developer>
+			<id>mark.rekveld</id>
+			<name>Mark Rekveld</name>
+			<email>mark@marvelution.com</email>
+			<url>http://www.marvelution.com</url>
+			<organization>Marvelution</organization>
+			<organizationUrl>http://www.marvelution.com/</organizationUrl>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:svn:https://spring-webservices-samples.googlecode.com/svn/trunk/spring-webservices-samples</connection>
+		<developerConnection>scm:svn:https://spring-webservices-samples.googlecode.com/svn/trunk/spring-webservices-samples</developerConnection>
+		<tag>scm:svn:https://spring-webservices-samples.googlecode.com/svn/tags/spring-webservices-samples</tag>
+		<url>http://code.google.com/p/spring-webservices-samples/source/browse/spring-webservices-samples</url>
+	</scm>
+	<organization>
+		<name>Marvelution</name>
+		<url>http://www.marvelution.com/</url>
+	</organization>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaDirectory>${basedir}/src/main/webapp/WEB-INF/</schemaDirectory>
+					<schemaFiles>wsdl/xsd/ImageLibraryServiceSchema.xsd</schemaFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+	</dependencies>
+</project>
