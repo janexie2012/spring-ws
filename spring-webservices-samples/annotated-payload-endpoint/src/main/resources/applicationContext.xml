@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="calculatorImpl"
-		class="com.marvelution.samples.spring_ws.annotated_payload_endpoint.CalculatorImpl" />
+		class="com.marvelution.samples.spring.ws.annotated.payload.endpoint.CalculatorImpl" />
 
 	<bean id="objectFactory"
 		class="com.marvelution.samples.schemas.calculatorserviceschema.ObjectFactory" />
 
 	<bean id="calculatorEndpoint"
-		class="com.marvelution.samples.spring_ws.annotated_payload_endpoint.endpoints.CalculatorEndpoint">
+		class="com.marvelution.samples.spring.ws.annotated.payload.endpoint.endpoints.CalculatorEndpoint">
 		<constructor-arg ref="calculatorImpl" />
 		<constructor-arg ref="objectFactory" />
 	</bean>
